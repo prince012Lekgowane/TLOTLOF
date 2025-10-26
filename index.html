@@ -1,21 +1,3 @@
-I'll help modify the code to:
-1. Update the Download button to redirect to https://loadly.io/tloftlof
-2. Replace the "Get Play Store Access" button with a "More Apps by Us" section featuring mini live clickable previews of the provided websites
-
-Since creating live website previews directly in HTML/CSS is complex and may not be fully reliable across all browsers (requires iframe sandboxing, potential CORS issues, and performance considerations), I'll use the fallback approach you suggested with placeholder images (app1.png, app2.png, etc.) that you'll upload to your GitHub repo. Each image will be clickable, linking to the respective app websites.
-
-Here are the changes:
-
-### Modifications
-1. **Update Download Button**: In the Download section, change the `href` of the Download button to `https://loadly.io/tloftlof`.
-2. **Replace Play Store Access Button**: In the Hero section, replace the "Get Play Store Access" button with a new "More Apps by Us" section containing a grid of clickable image previews for the provided app links.
-3. **Add Image-Based Previews**: Use placeholder images (`app1.png`, `app2.png`, etc.) in the same directory as `index.html`. Each image will link to one of the provided URLs and include hover effects consistent with the site's design.
-4. **Maintain Styling**: Ensure the new section matches the existing aesthetic (glass morphism, gradient text, animations, etc.) using Tailwind CSS and custom styles.
-
-### Updated Code
-Below is the modified HTML code with the requested changes. I've replaced the "Get Play Store Access" button in the Hero section with a "More Apps by Us" section and updated the Download button link. The rest of the code remains unchanged to preserve functionality.
-
-```html:disable-run
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -292,7 +274,7 @@ Below is the modified HTML code with the requested changes. I've replaced the "G
             <a href="#playstore" class="text-xl hover:text-pink-400 transition-colors duration-300 mobile-link">Get Access</a>
             <a href="#safety" class="text-xl hover:text-pink-400 transition-colors duration-300 mobile-link">Safety</a>
             <a href="#screenshots" class="text-xl hover:text-pink-400 transition-colors duration-300 mobile-link">Gallery</a>
-            <a href="#testimonials" class="text-xl hover:(text-pink-400 transition-colors duration-300 mobile-link">Reviews</a>
+            <a href="#testimonials" class="text-xl hover:text-pink-400 transition-colors duration-300 mobile-link">Reviews</a>
             <a href="#download" class="text-xl hover:text-pink-400 transition-colors duration-300 mobile-link">Download</a>
             <button onclick="openAuthModal('signin')" class="text-xl px-8 py-3 rounded-full border border-pink-400 hover:bg-pink-400 transition-all duration-300">
                 Sign In
@@ -369,43 +351,16 @@ Below is the modified HTML code with the requested changes. I've replaced the "G
                     </p>
                     
                     <div class="flex flex-wrap gap-4 items-center">
-                        <a href="https://loadly.io/tloftlof" class="btn-3d text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
+                        <button onclick="openAuthModal('signup')" class="btn-3d text-white px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-2">
                             Download
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
+                        </button>
+                        
+                        <a href="#download" class="px-8 py-4 rounded-full glass border border-white hover:bg-white hover:text-black transition-all duration-300 font-semibold text-lg">
+                            More Apps by Us
                         </a>
-                    </div>
-                    
-                    <!-- More Apps by Us Section -->
-                    <div class="mt-8" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="text-2xl font-bold mb-4 gradient-text">More Apps by Us</h3>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            <a href="https://prince012lekgowane.github.io/zenithai/" target="_blank" class="glass rounded-xl p-2 card-3d">
-                                <img src="app1.png" alt="ZenithAI" class="w-full h-32 object-cover rounded-lg">
-                                <p class="text-center text-sm mt-2 text-gray-300">ZenithAI</p>
-                            </a>
-                            <a href="https://loadly.io/CoVNZDbA" target="_blank" class="glass rounded-xl p-2 card-3d">
-                                <img src="app2.png" alt="App 2" class="w-full h-32 object-cover rounded-lg">
-                                <p class="text-center text-sm mt-2 text-gray-300">App 2</p>
-                            </a>
-                            <a href="https://prince012lekgowane.github.io/kushkart/" target="_blank" class="glass rounded-xl p-2 card-3d">
-                                <img src="app3.png" alt="KushKart" class="w-full h-32 object-cover rounded-lg">
-                                <p class="text-center text-sm mt-2 text-gray-300">KushKart</p>
-                            </a>
-                            <a href="https://prince012lekgowane.github.io/noesis/" target="_blank" class="glass rounded-xl p-2 card-3d">
-                                <img src="app4.png" alt="Noesis" class="w-full h-32 object-cover rounded-lg">
-                                <p class="text-center text-sm mt-2 text-gray-300">Noesis</p>
-                            </a>
-                            <a href="https://prince012lekgowane.github.io/sparksync/" target="_blank" class="glass rounded-xl p-2 card-3d">
-                                <img src="app5.png" alt="SparkSync" class="w-full h-32 object-cover rounded-lg">
-                                <p class="text-center text-sm mt-2 text-gray-300">SparkSync</p>
-                            </a>
-                            <a href="https://prince012lekgowane.github.io/eazihail/" target="_blank" class="glass rounded-xl p-2 card-3d">
-                                <img src="app6.png" alt="EaziHail" class="w-full h-32 object-cover rounded-lg">
-                                <p class="text-center text-sm mt-2 text-gray-300">EaziHail</p>
-                            </a>
-                        </div>
                     </div>
                     
                     <div class="flex items-center gap-6 pt-4">
@@ -639,7 +594,7 @@ Below is the modified HTML code with the requested changes. I've replaced the "G
                         </div>
 
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-[#A855F7] to-[#FF6B9D] flex items-center justify-center-0">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-[#A855F7] to-[#FF6B9D] flex items-center justify-center flex-shrink-0">
                                 <span class="text-xl">3</span>
                             </div>
                             <div>
@@ -936,8 +891,12 @@ Below is the modified HTML code with the requested changes. I've replaced the "G
                 </div>
                 
                 <div class="glass rounded-3xl p-8" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center gap Nicholson, 31</p>
-                        <p class="text-sm text-gray-400">Durban</p>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-[#A855F7] to-[#FF6B9D]"></div>
+                        <div>
+                            <p class="font-bold">Sipho, 31</p>
+                            <p class="text-sm text-gray-400">Durban</p>
+                        </div>
                     </div>
                     <p class="text-gray-300 italic mb-4">
                         "The 'Tonight's Plans' feature is brilliant. I found someone available the same evening and we had a great time. The instant earnings are a game-changer!"
@@ -966,9 +925,9 @@ Below is the modified HTML code with the requested changes. I've replaced the "G
                         
                         <div class="space-y-4">
                             <a href="https://loadly.io/tloftlof" class="block w-full btn-3d text-white px-8 py-6 rounded-2xl font-bold text-xl flex items-center justify-center gap-3">
-                                👥 Apply for Play Store Access
+                                📱 Download TlofTlof
                                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                                 </svg>
                             </a>
                             
@@ -983,6 +942,50 @@ Below is the modified HTML code with the requested changes. I've replaced the "G
                         <p class="text-lg mb-4">👉 <strong>Step 2:</strong> Get approved within 24 hours</p>
                         <p class="text-lg mb-4">👉 <strong>Step 3:</strong> Download from Play Store & start earning</p>
                         <p class="text-lg text-green-400 font-bold">💰 Start earning money immediately after approval!</p>
+                    </div>
+                </div>
+
+                <!-- More Apps by Us Section -->
+                <div class="mt-20" data-aos="fade-up">
+                    <h3 class="text-3xl font-bold text-center mb-12 gradient-text">More Apps by Us</h3>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto text-center mb-8">Explore our other innovative apps designed to enhance your digital experience.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        <!-- App 1: ZenithAI -->
+                        <a href="https://prince012lekgowane.github.io/zenithai/" target="_blank" class="glass rounded-2xl p-4 feature-card block">
+                            <img src="app1.jpg" alt="ZenithAI Preview" class="w-full h-48 object-cover rounded-xl mb-4">
+                            <h4 class="text-lg font-bold gradient-text">ZenithAI</h4>
+                            <p class="text-sm text-gray-300">Discover the power of AI-driven insights with ZenithAI.</p>
+                        </a>
+                        <!-- App 2: CoVNZDbA -->
+                        <a href="https://loadly.io/CoVNZDbA" target="_blank" class="glass rounded-2xl p-4 feature-card block">
+                            <img src="app2.jpg" alt="App Preview" class="w-full h-48 object-cover rounded-xl mb-4">
+                            <h4 class="text-lg font-bold gradient-text">App Name</h4>
+                            <p class="text-sm text-gray-300">Experience seamless functionality with this innovative app.</p>
+                        </a>
+                        <!-- App 3: KushKart -->
+                        <a href="https://prince012lekgowane.github.io/kushkart/" target="_blank" class="glass rounded-2xl p-4 feature-card block">
+                            <img src="app3.jpg" alt="KushKart Preview" class="w-full h-48 object-cover rounded-xl mb-4">
+                            <h4 class="text-lg font-bold gradient-text">KushKart</h4>
+                            <p class="text-sm text-gray-300">Shop effortlessly with KushKart's intuitive platform.</p>
+                        </a>
+                        <!-- App 4: Noesis -->
+                        <a href="https://prince012lekgowane.github.io/noesis/" target="_blank" class="glass rounded-2xl p-4 feature-card block">
+                            <img src="app4.jpg" alt="Noesis Preview" class="w-full h-48 object-cover rounded-xl mb-4">
+                            <h4 class="text-lg font-bold gradient-text">Noesis</h4>
+                            <p class="text-sm text-gray-300">Unlock knowledge and insights with Noesis.</p>
+                        </a>
+                        <!-- App 5: SparkSync -->
+                        <a href="https://prince012lekgowane.github.io/sparksync/" target="_blank" class="glass rounded-2xl p-4 feature-card block">
+                            <img src="app5.jpg" alt="SparkSync Preview" class="w-full h-48 object-cover rounded-xl mb-4">
+                            <h4 class="text-lg font-bold gradient-text">SparkSync</h4>
+                            <p class="text-sm text-gray-300">Sync your world with SparkSync's connectivity tools.</p>
+                        </a>
+                        <!-- App 6: EaziHail -->
+                        <a href="https://prince012lekgowane.github.io/eazihail/" target="_blank" class="glass rounded-2xl p-4 feature-card block">
+                            <img src="app6.jpg" alt="EaziHail Preview" class="w-full h-48 object-cover rounded-xl mb-4">
+                            <h4 class="text-lg font-bold gradient-text">EaziHail</h4>
+                            <p class="text-sm text-gray-300">Hail rides with ease using EaziHail's platform.</p>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1235,38 +1238,42 @@ Below is the modified HTML code with the requested changes. I've replaced the "G
             this.reset();
         });
 
-        // Close modal on outside click
+                // Close modal on outside click
         document.getElementById('authModal').addEventListener('click', (e) => {
             if (e.target.id === 'authModal') {
                 closeAuthModal();
             }
         });
 
-        // Animated counter forstats
-document.querySelectorAll('.count-up').forEach(counter => {
-const target = parseInt(counter.getAttribute('data-count'));
-const duration = 2000; // Animation duration in ms
-const increment = target / 100;
-let current = 0;
-const updateCounter = () => {
-current += increment;
-if (current >= target) {
-counter.textContent = target.toLocaleString() + (counter.getAttribute('data-count').includes('%') ? '%' : '+');
-return;
-}
-counter.textContent = Math.floor(current).toLocaleString() + (counter.getAttribute('data-count').includes('%') ? '%' : '+');
-requestAnimationFrame(updateCounter);
-};
-updateCounter();
-});
-// Update online users count dynamically
-const onlineCount = document.getElementById('online-count');
-let users = 42;
-setInterval(() => {
-users += Math.floor(Math.random() * 5) - 2; // Random fluctuation
-users = Math.max(10, Math.min(100, users)); // Keep between 10 and 100
-onlineCount.textContent = ${users} Online;
-}, 5000);
-</script>
+        // Stats Counter Animation
+        const counters = document.querySelectorAll('.count-up');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText.replace(/[^0-9]/g, '');
+                const speed = 200; // Animation speed
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 10);
+                } else {
+                    counter.innerText = target.toLocaleString() + (counter.innerText.includes('%') ? '%' : '+');
+                }
+            };
+            updateCount();
+        });
+
+        // Online Users Counter (Dynamic Simulation)
+        const onlineCount = document.getElementById('online-count');
+        let onlineUsers = 42;
+        setInterval(() => {
+            onlineUsers += Math.floor(Math.random() * 5) - 2; // Random fluctuation
+            onlineUsers = Math.max(30, Math.min(100, onlineUsers)); // Keep between 30-100
+            onlineCount.textContent = `${onlineUsers} Online`;
+            onlineCount.classList.add('count-up');
+            setTimeout(() => onlineCount.classList.remove('count-up'), 500);
+        }, 10000);
+    </script>
 </body>
 </html>
