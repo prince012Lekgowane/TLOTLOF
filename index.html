@@ -147,6 +147,78 @@
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
         }
+
+        /* Phone Mockup */
+        .phone-mockup-container {
+            position: relative;
+            perspective: 1500px;
+        }
+        
+        .phone-mockup {
+            position: relative;
+            width: min(400px, 90vw);
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            transition: var(--transition);
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .phone-mockup:hover {
+            transform: scale(1.05);
+        }
+        
+        .phone-mockup img {
+            width: 100%;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Floating Cards */
+        .floating-card {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            border-radius: var(--radius);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow-xl);
+            z-index: 10;
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        .card-earnings {
+            top: 10%;
+            right: -50px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.2));
+            color: var(--success);
+        }
+        
+        .card-online {
+            bottom: 40%;
+            left: -40px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(37, 99, 235, 0.2));
+            color: var(--info);
+            animation-delay: 1.5s;
+        }
+        
+        .card-matches {
+            bottom: 10%;
+            right: -30px;
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.3), rgba(185, 28, 28, 0.2));
+            color: var(--danger);
+            animation-delay: 3s;
+        }
+        
+        @media (max-width: 1024px) {
+            .floating-card {
+                position: static;
+                display: inline-flex;
+                margin: 0.5rem;
+            }
+        }
         
         /* Widget styles */
         .widget {
@@ -379,26 +451,33 @@
                     </div>
                 </div>
                 
-                <div class="md:w-1/2" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-gradient-to-r from-[#FF6B9D]/30 to-[#EC4899]/30 rounded-3xl filter blur-3xl opacity-70 rotate-6"></div>
-                        <div class="relative mx-auto rounded-3xl shadow-2xl card-3d bg-gradient-to-br from-pink-900 to-black p-8 h-96 flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="text-6xl mb-4">🔥</div>
-                                <h3 class="text-2xl font-bold mb-2">TlofTlof</h3>
-                                <p class="text-gray-400">Adult Hookup App</p>
-                            </div>
+                <div class="phone-mockup-container" data-aos="fade-left" data-aos-delay="300">
+                    <div class="phone-mockup">
+                        <img src="12.png" alt="SparkSync App Interface">
+                    </div>
+                    
+                    <!-- Floating Cards -->
+                    <div class="floating-card card-earnings" data-aos="fade-left" data-aos-delay="600">
+                        <i class="fas fa-coins" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <strong style="display: block; font-size: 1.25rem;">R500+</strong>
+                            <div style="font-size: 0.85rem; opacity: 0.9;">Monthly Earnings</div>
                         </div>
-                        
-                        <!-- Floating stats badges -->
-                        <div class="absolute -top-4 -right-4 glass rounded-2xl p-4 shadow-xl" data-aos="fade-left" data-aos-delay="600">
-                            <p class="text-2xl font-bold gradient-text">1M+</p>
-                            <p class="text-xs text-gray-400">Connections Made</p>
+                    </div>
+                    
+                    <div class="floating-card card-online" data-aos="fade-left" data-aos-delay="800">
+                        <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <strong style="display: block; font-size: 1.25rem;">18 Online</strong>
+                            <div style="font-size: 0.85rem; opacity: 0.9;">Active Now</div>
                         </div>
-                        
-                        <div class="absolute -bottom-4 -left-4 glass rounded-2xl p-4 shadow-xl" data-aos="fade-right" data-aos-delay="800">
-                            <p class="text-2xl font-bold">💰 R500+</p>
-                            <p class="text-xs">Avg. Monthly Earnings</p>
+                    </div>
+                    
+                    <div class="floating-card card-matches" data-aos="fade-left" data-aos-delay="1000">
+                        <i class="fas fa-heart" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <strong style="display: block; font-size: 1.25rem;">85% Success</strong>
+                            <div style="font-size: 0.85rem; opacity: 0.9;">Match Rate</div>
                         </div>
                     </div>
                 </div>
